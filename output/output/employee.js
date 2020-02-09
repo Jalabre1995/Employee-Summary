@@ -1,7 +1,7 @@
 
     const inquirer = require('inquirer')
 
-    // //////Questions to ask the user////
+    ////////Questions to ask the user////
   
     inquirer.prompt([{
     
@@ -11,17 +11,24 @@
   },
   {
       type: "input",
-      id: "idNumber",
+      name: "role",
+      message: "what is your occupation ?"
+
+
+  },
+  {
+      type: "input",
+      name: "idNumber",
       message: "What is your id number?"
   },
   {
       type: "input",
-      email: "emailProvided",
-      message: "What is your eamil",
+      name: "emailProvided",
+      message: "What is your email?",
   },
   {
       type: "input",
-      office: "officeProvided",
+      name: "officeProvided",
       message: "What is your office number?",
   }
   ])
@@ -30,45 +37,55 @@
       idNumber = answers.idNumber;
       emailProvided = answers.emailProvided;
      officeProvided = answers.officeProvided;
+     role = answers.role; 
   })
   
-  
-  class Employee {
-      constructor(name, id, title,) {
-          this.name = name;
-          this.id = id;
-          this.title = title;
-   getName(function(){
-      return `Hi ${this.name}`
-  })
-  
-  
-  ////set the id /////
-   getId(function() {
-       const id = 100;
-       const employee2 = new Employee("Alice", id);
-       expect(employee2.id) = (id);
-   });
-  
-   ///set the email//// 
-   getEmail  (function() {
-       const email = "";
-       const employee3 = new Employee('Alice', 1 , email);
-       (employee3.email) = email 
-   });
-  
-   getName(function() {
-     
-      
-  
-   })
-          
-      }
+  /////constructing the Employee class////
+class Employee {
+constructor(name, id, email) {
+ if (!name) {
+   throw new Error("You are missing the name.");
   }
-  
-  //  Name for the Employee////
-  const employee1 = new Employee("Alice");
-  console.log(employee1);
+  if (!id) {
+   throw new Error("You are missing the Id. ");
+   
+ }
+ if (!email) {
+  throw new Error("You are missing the title.");
+ }
+ this.name = name;
+ this.id = id;
+ this.email = email
+ this.role
+
+
+}
+///////getName function/////
+getName() {
+    return`Your Name is ${this.name}`; 
+}
+
+    
+   ////set the id /////
+   getId(id) {
+       return `Your id number is ${this.id}`;
+   }
+    ///set the email//// 
+    getEmail(){
+        return`Your eamil is ${this.email}`;
+    }
+
+    ///set the Role///
+    getRole() {
+        return `Your role is ${this.role}`;
+    }
+
+
+
+    }
+ 
+          
+
   
     
   
