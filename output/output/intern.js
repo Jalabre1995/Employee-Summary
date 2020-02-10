@@ -17,5 +17,27 @@ inquirer.prompt([{
 ])
 
 .then(function(answers) {
-    
+    school = answers.school;
+    github = answers.github;
 })
+
+///Class for the intern/////
+
+class Intern extends Employee() {
+    constructor(name, id,email,school) {
+        super(name,id,email);
+        this.school = school
+    }
+    ///get school////
+getSchool() {
+    return `Your school is ${this.school}`;
+}
+
+getRole() {
+    return "Intern"
+}
+
+
+}
+
+

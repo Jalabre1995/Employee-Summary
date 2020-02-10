@@ -7,24 +7,32 @@
     <title>Employee</title>
 </head>
 <body>
-    <!----Title -------->
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">MY TEAM</h1>
-        </div>
-      </div>
+   
 
       <!-------- Body --------->
       <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <div id="ocupation"></div>
-          <h5 class="card-title">Employee</h5>
+          <form method="POST" role="form">
+
+            <div class="form-group">
+              <label for="name" id="name">Name</label>
+            </div>
+
+            <div class="form-group">
+              <label for="role" id="role">Role</label>
+            </div>
+
+            <div class="form-group">
+              <label for="id" id="id">Id</label>
+            </div>
+
+            <div class="form-group">
+              <label for="role-property" id="role-property">Role-Specific</label>
+            </div>
+
+          </form>
+          
         </div>
-        <ul class="list-group list-group-flush">
-          <li id="id">1</li> 
-          <a href=""li id="email">Email</li></a>
-          <a href=""li id="office">Office Number</li></a>
-        </ul>
       </div>
       <script src="/output/output/employee.js"></script>
 </body>
