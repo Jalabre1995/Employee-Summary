@@ -1,5 +1,5 @@
-Employee-Summary
-This CLI application generates and saves an html file based on the user input.
+#Employee-Summary
+Employee-Summary.This CLI application generates and saves an html file based on the user input.
 
 When the application starts the user will be prompted to input the details of a team. The team can have only one manager and any combination of engineers and interns. First the user will enter manager's details, and then the details of all the team members.
 
