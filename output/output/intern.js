@@ -1,25 +1,25 @@
 const Employee = require("./employee")
 //Questions for the intern///
 
-inquirer.prompt([{
+// inquirer.prompt([{
     
-    type: "input",
-    name: "school",
-    message:"What school do you attend?"
+//     type: "input",
+//     name: "school",
+//     message:"What school do you attend?"
     
-},
-{
-    type: "input",
-    name: "github",
-    message: "What is your gitHub Username"
-}
+// },
+// {
+//     type: "input",
+//     name: "github",
+//     message: "What is your gitHub Username"
+// }
 
-])
+// ])
 
-.then(function(answers) {
-    school = answers.school;
-    github = answers.github;
-})
+// .then(function(answers) {
+//     school = answers.school;
+//     github = answers.github;
+// })
 
 ///Class for the intern/////
 

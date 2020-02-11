@@ -1,22 +1,23 @@
 const Employee = require("./employee")
-//Questions for the Manager/// 
+// const inquirer = require('inquirer')
+// //Questions for the Manager/// 
 
- inquirer.prompt([{
+//  inquirer.prompt([{
 
-     type: "input",
-     name:"officeProvided",
-     message: "What os your office number?"
+//      type: "input",
+//      name:"officeProvided",
+//      message: "What os your office number?"
 
- }])
+//  }])
 
- .then(function(answers){
-     officeProvided = answers.officeProvided;
-})
+//  .then(function(answers){
+//      officeProvided = answers.officeProvided;
+// })
 
 
 
 class Manager extends Employee() {
-    constuctor (name, id, email, office) {
+    constructor (name, id, email, office) {
         super(name, id, email);
         this.officeNumber = office
     }

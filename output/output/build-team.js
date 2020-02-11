@@ -1,10 +1,15 @@
-const inquierer = rewuire("inquirer");
+const inquirer = require("inquirer");
 const Manager = require("./manager");
 const Engineer = require("./engineer");
 const Intern = require("./intern");
 const Employee = require("./employee");
 
+const path = path.resolve(__dirname, "output", "team.html");
+const teamMembers = [];
+
 function start() {
+////Asking questions for the Manager///////
+function askManagerQuestions() {
     return inquierer.prompt([
         {
             type: "input",
@@ -24,23 +29,80 @@ function start() {
         {
             type: "input",
             name: "officeNumber",
-            message: "What s your manager's office number?"
+            message: "What is your manager's office number?"
         }
-    ])
+    ]).then(function(answers) {
+        const manager = new Manager(answers.name, answers.id, answers.email,answers.officeNumber);
+        teamMembers.push(manager);
+        createTeam();
+    })
 }
-
-function startTeam(){
-    inquierer.prompt([
+/////// Creating the team base on the manager's answers//////
+function createTeam(){
+   return inquirer.prompt([
         {
             
             type: "list",
             name: "role",
-            message: "What type of team meber would you like to add?",
+            message: "What type of team member would you like to add?",
             choices: ["Engineer", "Intern", "Employee", "I don't want to add any more members"]
         }
     ]).then(function(answers){
-        if(answers.role === "Engineer") {
-            return inquierer.prompt([
+        switch (answers.role) {
+            case "Employee":
+                addEmployee();
+                break;
+            case "Engineer":
+            addEngineer();
+            break;
+            case"Intern":
+             addIntern();
+            break;
+             default:
+            buildTeam();
+        }
+        ///Add Employee////
+        function addEmployee(){
+            return   inquirer.prompt([{
+    
+                type: "input",
+                name: "name",
+                message: "What is your name?"
+              },
+              {
+                  type: "input",
+                  name: "role",
+                  message: "what is your occupation ?"
+           
+           
+              },
+              {
+                  type: "input",
+                  name: "idNumber",
+                  message: "What is your id number?"
+              },
+              {
+                  type: "input",
+                  name: "emailProvided",
+                  message: "What is your email?",
+              },
+              {
+                  type: "input",
+                  name: "officeProvided",
+                  message: "What is your office number?",
+              }
+              ])
+              .then(function(answers){
+                  const employee = new Employee(answers.name, answers.id,answers.email,answers.role);
+                  teamMembers.push(employee);
+                  createTeam(); 
+              })
+        }
+        
+        
+        ///Add Enginner/////
+function addEngineer(){
+return inquirer.prompt([
                 {
                     type: "input",
                     name: "name",
@@ -62,14 +124,14 @@ function startTeam(){
                   message: "What is youe engineer's gitHub?"
                 }
             ]).then(function(answers){
-                let engineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub);
-                return engineer.getHTML();
-                startTeam();
+                const engineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub);
+                teamMembers.push(engineer);
+                createTeam();
             })
-
         }
-        if (answers.role === "Intern") {
-            return inquierer.prompt([
+ ////// Add Intern ////////
+  function addIntern(){
+            return inquirer.prompt([
                 {
                     type: "input",
                     name: "name",
@@ -91,24 +153,21 @@ function startTeam(){
                     message: "What is the Intern's school?" 
                 }
             ]).then(function(answers){
-                let intern = new Intern(answers.name, answers.id, answers.email, answers.school);
-                return intern.getHTML();
-                startTeam();
-            })
+                const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+                teamMembers.push(intern);
+                createTeam();
+            });
         }
-        return printHTML(team);
-
+        
     });
 }
-function printHTML(team) {
-    fs.writeFile("team.html", team, (err) => {
-        if (err) {
-            throw err;
-        };
-        console.log("Team made!");
-
-    });
-    open("team.html")
+function buildteam() {
+    fs.writeFile(outPath, render(teamMembers), "utf-8"); 
 }
+
+askManagerQuestions();
+}
+
+start();
 
 ///Start the Sequence//////

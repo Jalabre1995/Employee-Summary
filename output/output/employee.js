@@ -1,44 +1,44 @@
 
-    const inquirer = require('inquirer')
+const inquirer = require('inquirer')
 
     ////////Questions to ask the user////
   
-    inquirer.prompt([{
+//     inquirer.prompt([{
     
-    type: "input",
-    name: "name",
-    message: "What is your name?"
-  },
-  {
-      type: "input",
-      name: "role",
-      message: "what is your occupation ?"
+//      type: "input",
+//      name: "name",
+//      message: "What is your name?"
+//    },
+//    {
+//        type: "input",
+//        name: "role",
+//        message: "what is your occupation ?"
 
 
-  },
-  {
-      type: "input",
-      name: "idNumber",
-      message: "What is your id number?"
-  },
-  {
-      type: "input",
-      name: "emailProvided",
-      message: "What is your email?",
-  },
-  {
-      type: "input",
-      name: "officeProvided",
-      message: "What is your office number?",
-  }
-  ])
-  .then(function(answers){
-      name = answers.name;
-      idNumber = answers.idNumber;
-      emailProvided = answers.emailProvided;
-     officeProvided = answers.officeProvided;
-     role = answers.role; 
-  })
+//    },
+//    {
+//        type: "input",
+//        name: "idNumber",
+//        message: "What is your id number?"
+//    },
+//    {
+//        type: "input",
+//        name: "emailProvided",
+//        message: "What is your email?",
+//    },
+//    {
+//        type: "input",
+//        name: "officeProvided",
+//        message: "What is your office number?",
+//    }
+//    ])
+//    .then(function(answers){
+//        name = answers.name;
+//        idNumber = answers.idNumber;
+//        emailProvided = answers.emailProvided;
+//       officeProvided = answers.officeProvided;
+//       role = answers.role; 
+//    })
   
   /////constructing the Employee class////
 class Employee {

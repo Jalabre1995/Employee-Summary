@@ -2,15 +2,15 @@ const Employee = require("./employee");
 
 ////Sub class for the engineer/////
 
- inquirer.prompt([{
+//  inquirer.prompt([{
 
-     type: "input",
-     name: "githubUsername",
-     message: "What is you gitHub Username?"
- }])
- .then(function(answers) {
-    github = answers.gitHub;
- })
+//      type: "input",
+//      name: "githubUsername",
+//      message: "What is you gitHub Username?"
+//  }])
+//  .then(function(answers) {
+//     github = answers.gitHub;
+//  })
 
 
 class Engineer extends Employee() {
