@@ -1,4 +1,4 @@
-const Employee = require("./employee")
+const Employee = require("./build-team")
 //Questions for the intern///
 
 // inquirer.prompt([{
@@ -23,7 +23,7 @@ const Employee = require("./employee")
 
 ///Class for the intern/////
 
-class Intern extends Employee() {
+class Intern extends Employee {
     constructor(name, id,email,school) {
         super(name,id,email);
         this.school = school
@@ -41,3 +41,4 @@ getRole() {
 }
 
 
+module.exports = Intern;

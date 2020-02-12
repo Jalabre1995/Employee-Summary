@@ -19,12 +19,12 @@ function askManagerQuestions() {
         {
             type: "input",
             name: "id",
-            message: "What s your managers ID?"
+            message: "What is your manager's ID?"
         },
         {
             type: "input",
             name: "email",
-            message: "What s your manager's email?"
+            message: "What is your manager's email?"
         },
         {
             type: "input",

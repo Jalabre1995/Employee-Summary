@@ -1,4 +1,4 @@
-
+const
 const inquirer = require('inquirer')
 
     ////////Questions to ask the user////
@@ -83,6 +83,8 @@ getName() {
 
 
     }
+
+    module.exports = Employee;
  
           
 

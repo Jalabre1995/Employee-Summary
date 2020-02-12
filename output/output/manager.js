@@ -1,4 +1,4 @@
-const Employee = require("./employee")
+const Employee = require("./build-team")
 // const inquirer = require('inquirer')
 // //Questions for the Manager/// 
 
@@ -16,7 +16,7 @@ const Employee = require("./employee")
 
 
 
-class Manager extends Employee() {
+class Manager extends Employee {
     constructor (name, id, email, office) {
         super(name, id, email);
         this.officeNumber = office
@@ -31,3 +31,5 @@ class Manager extends Employee() {
         return `this is your ${this.officeNumber}`
     }
 }
+
+module.exports = Manager;
